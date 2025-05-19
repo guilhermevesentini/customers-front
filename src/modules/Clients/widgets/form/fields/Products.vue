@@ -1,0 +1,58 @@
+<template>
+  <v-btn class="mb-5 mt-2" color="secondary" prepend-icon="mdi-plus" style="width: 100%; height: 40px;" @click="handleAdd">Add contract</v-btn>
+  
+  <v-container class="mb-5" style="padding: 0">
+
+    <v-card class="d-flex justify-center align-center" v-if="!form?.products.length" style="min-height: 200px;">
+      To add a contract click on the button "+ ADD CONTRACT"
+    </v-card >
+    
+    <v-card class="mb-5" v-for="product in form?.products" v-else>
+      <PageTile title="New Product" @update:delete="handleRemove(product)" show-delete/>
+      
+      <ProductsChildren 
+        ref="childrenRefs"
+        :product="product"
+      />
+    </v-card>
+  </v-container>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { Products } from '@/domain/clients/entities/Products';
+import type { IClient } from '@/modules/Clients/interfaces/IClient';
+import type { IProduct } from '@/modules/Clients/interfaces/IProducts';
+import ProductsChildren from './ProductsChildren.vue';
+import PageTile from '@/shared/components/ui/titles/PageTile.vue';
+
+const form = inject<IClient>('clientForm')
+const childrenRefs = ref<InstanceType<typeof ProductsChildren>[]>([])  
+
+function handleAdd() {
+  form?.products.push(new Products().getProducts)
+}
+
+function handleRemove(product: IProduct) {  
+  const index = form?.products.indexOf(product)
+  if (index !== undefined && index > -1) {
+    form?.products.splice(index, 1)
+  }
+}
+
+async function validate() {    
+  if (!form?.products.length) return {
+    errors: {},
+    valid: true
+  }
+  
+  const results = await Promise.all(
+    childrenRefs.value.map(ref => ref?.validate())
+  )
+  return {
+    valid: results.every(item => item == true)
+  }
+}
+
+defineExpose({ validate })
+</script>

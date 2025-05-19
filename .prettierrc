@@ -1,0 +1,13 @@
+{
+  "printWidth": 100,
+  "bracketSameLine": false,
+  "vueIndentScriptAndStyle": true,
+  "overrides": [
+    {
+      "files": "*.vue",
+      "options": {
+        "singleAttributePerLine": false
+      }
+    }
+  ]
+}

@@ -19,8 +19,14 @@
                 label="Status *"
                 required
                 :rules="statusRules"
+<<<<<<< HEAD
               />
             </v-col>
+=======
+              /> 
+            </v-col>
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.details.email"
@@ -29,9 +35,18 @@
                 :rules="emailRules"
               />
             </v-col>
+<<<<<<< HEAD
             <v-col cols="12" md="6">
               <DatePickerInput v-model="form.details.birthday" label="Birthday" />
             </v-col>
+=======
+
+            <v-col cols="12" md="6">
+              <DatePickerInput v-model="form.details.birthday" label="Birthday"/>
+            </v-col>
+
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.details.cpf"
@@ -41,9 +56,22 @@
                 :rules="cpfRules"
               />
             </v-col>
+<<<<<<< HEAD
             <v-col cols="12" md="6">
               <InputText v-model="form.details.rg" mask="'##.###.###-#'" label="RG" required />
             </v-col>
+=======
+
+            <v-col cols="12" md="6">
+              <InputText
+                v-model="form.details.rg"
+                mask="'##.###.###-#'"
+                label="RG"
+                required
+              />
+            </v-col>
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.details.phone"
@@ -61,6 +89,7 @@
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
   import { ref } from "vue";
   import InputText from "@/shared/components/ui/inputs/InputText.vue";
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
@@ -86,4 +115,25 @@
   }
 
   defineExpose({ validate });
+=======
+  import { ref } from 'vue'
+  import InputText from '@/shared/components/ui/inputs/InputText.vue';
+  import type { IClient } from '@/modules/Clients/interfaces/IClient';
+  import DatePickerInput from '@/shared/components/ui/datepicker/DatePickerInput.vue';
+  import { cpfMask, phoneMask } from '@/core/utils/utils';
+import { cpfRules, emailRules, nameRules, phoneRules, statusRules } from '@/core/validators/validationsRules';
+import { statusOpt } from '@/shared/enums/enums';
+import Select from '@/shared/components/ui/selects/Select.vue';
+
+  const formRef = ref()
+  const valid = ref(false)
+
+  const form = inject<IClient>('clientForm')
+  
+  function validate() {
+    return formRef.value?.validate()
+  }
+
+  defineExpose({ validate })
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>

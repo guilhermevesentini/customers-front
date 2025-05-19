@@ -32,11 +32,17 @@
             />
           </v-col>
           <v-col cols="12" md="6">
+<<<<<<< HEAD
             <Switch
               v-model="form.riskProfile.hasSecurity"
               label="Há segurança ou vigilância 24h?"
             />
           </v-col>
+=======
+            <Switch v-model="form.riskProfile.hasSecurity" label="Há segurança ou vigilância 24h?"/>
+          </v-col>
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
           <!-- CONDUTOR -->
           <v-col cols="12">
             <h3>Condutor Principal</h3>
@@ -66,11 +72,17 @@
             />
           </v-col>
           <v-col cols="12" md="6">
+<<<<<<< HEAD
             <Switch
               v-model="form.riskProfile.hasMinorChildren"
               label="Possui filhos menores de 18 anos?"
             />
           </v-col>
+=======
+            <Switch v-model="form.riskProfile.hasMinorChildren" label="Possui filhos menores de 18 anos?"/>
+          </v-col>
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
           <!-- USO DO VEÍCULO -->
           <v-col cols="12">
             <h3>Uso do Veículo</h3>
@@ -107,6 +119,10 @@
               type="number"
             />
           </v-col>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
           <!-- COBERTURA -->
           <v-col cols="12">
             <h3>Cobertura Desejada</h3>
@@ -128,10 +144,17 @@
             />
           </v-col>
           <v-col cols="12" md="4">
+<<<<<<< HEAD
             <Switch v-model="form.riskProfile.wantsAssistance" label="Assistência 24h" />
           </v-col>
           <v-col cols="12" md="4">
             <Switch v-model="form.riskProfile.wantsReserveCar" label="Carro reserva" />
+=======
+            <Switch v-model="form.riskProfile.wantsAssistance" label="Assistência 24h"/>
+          </v-col>
+          <v-col cols="12" md="4">
+            <Switch v-model="form.riskProfile.wantsReserveCar" label="Carro reserva"/>
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
           </v-col>
           <v-col cols="12" md="4">
             <Switch v-model="form.riskProfile.wantsGlassCoverage" label="Cobertura de vidros" />
@@ -143,6 +166,7 @@
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
   import InputText from "@/shared/components/ui/inputs/InputText.vue";
   import Select from "@/shared/components/ui/selects/Select.vue";
@@ -152,4 +176,15 @@
   const valid = ref(false);
 
   const form = inject<IClient>("clientForm");
+=======
+  import type { IClient } from '@/modules/Clients/interfaces/IClient';
+  import InputText from '@/shared/components/ui/inputs/InputText.vue';
+  import Select from '@/shared/components/ui/selects/Select.vue';
+import Switch from '@/shared/components/ui/switches/Switch.vue';
+  import { ref } from 'vue'
+  
+  const valid = ref(false)
+
+  const form = inject<IClient>('clientForm')
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>

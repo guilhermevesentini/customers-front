@@ -1,12 +1,26 @@
 {
+<<<<<<< HEAD
   "printWidth": 100,
   "bracketSameLine": false,
   "vueIndentScriptAndStyle": true,
+=======
+  "singleQuote": true,
+  "semi": false,
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "bracketSameLine": false,
+  "vueIndentScriptAndStyle": false,
+  "plugins": ["prettier-plugin-vue"],
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
   "overrides": [
     {
       "files": "*.vue",
       "options": {
+<<<<<<< HEAD
         "singleAttributePerLine": false
+=======
+        "singleAttributePerLine": true
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
       }
     }
   ]

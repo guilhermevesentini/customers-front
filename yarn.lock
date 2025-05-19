@@ -2375,6 +2375,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+<<<<<<< HEAD
 prettier-plugin-vue@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/prettier-plugin-vue/-/prettier-plugin-vue-1.1.6.tgz#b7d3d6bd30b9669708d33db5cf5d191778252b4b"
@@ -2383,6 +2384,9 @@ prettier-plugin-vue@^1.1.6:
     prettier "^2.8.1"
 
 "prettier@^1.18.2 || ^2.0.0", prettier@^2.8.1:
+=======
+"prettier@^1.18.2 || ^2.0.0":
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
   version "2.8.8"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.8.8.tgz"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==

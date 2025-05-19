@@ -2,11 +2,20 @@
   <v-container class="fill-height" max-width="900">
     <div>
       <v-img class="mb-4" height="150" src="@/assets/logo.png" />
+<<<<<<< HEAD
       <div class="mb-8 text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
         <h1 class="text-h2 font-weight-bold">Vuetify</h1>
       </div>
+=======
+
+      <div class="mb-8 text-center">
+        <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+        <h1 class="text-h2 font-weight-bold">Vuetify</h1>
+      </div>
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
       <v-row>
         <v-col cols="12">
           <v-card
@@ -17,6 +26,7 @@
             rounded="lg"
             variant="tonal"
           >
+<<<<<<< HEAD
             <template #image> <v-img position="top right" /> </template>
             <template #title>
               <h2 class="text-h5 font-weight-bold">Get started</h2>
@@ -25,10 +35,31 @@
               <div class="text-subtitle-1">
                 Change this page by updating <v-kbd>{{ ` <Documentation />` }} </v-kbd> in
                 <v-kbd>components/Documentation.vue</v-kbd>.
+=======
+            <template #image>
+              <v-img position="top right" />
+            </template>
+
+            <template #title>
+              <h2 class="text-h5 font-weight-bold">
+                Get started
+              </h2>
+            </template>
+
+            <template #subtitle>
+              <div class="text-subtitle-1">
+                Change this page by updating <v-kbd>{{ `
+                  <Documentation />` }}
+                </v-kbd> in <v-kbd>components/Documentation.vue</v-kbd>.
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
               </div>
             </template>
           </v-card>
         </v-col>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
         <v-col v-for="link in links" :key="link.href" cols="6">
           <v-card
             append-icon="mdi-open-in-new"
@@ -52,6 +83,7 @@
 <script setup lang="ts">
   const links = [
     {
+<<<<<<< HEAD
       href: "https://vuetifyjs.com/",
       icon: "mdi-text-box-outline",
       subtitle: "Learn about all things Vuetify in our documentation.",
@@ -76,4 +108,30 @@
       title: "Community",
     },
   ];
+=======
+      href: 'https://vuetifyjs.com/',
+      icon: 'mdi-text-box-outline',
+      subtitle: 'Learn about all things Vuetify in our documentation.',
+      title: 'Documentation',
+    },
+    {
+      href: 'https://vuetifyjs.com/introduction/why-vuetify/#feature-guides',
+      icon: 'mdi-star-circle-outline',
+      subtitle: 'Explore available framework Features.',
+      title: 'Features',
+    },
+    {
+      href: 'https://vuetifyjs.com/components/all',
+      icon: 'mdi-widgets-outline',
+      subtitle: 'Discover components in the API Explorer.',
+      title: 'Components',
+    },
+    {
+      href: 'https://discord.vuetifyjs.com',
+      icon: 'mdi-account-group-outline',
+      subtitle: 'Connect with Vuetify developers.',
+      title: 'Community',
+    },
+  ]
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>

@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
   import { ref, watch } from "vue";
   import VueDatePicker from "@vuepic/vue-datepicker";
 
@@ -76,4 +77,64 @@
     transform: translateY(-50%);
     color: rgba(0, 0, 0, 0.54);
   }
+=======
+import { ref, watch } from 'vue'
+import VueDatePicker from '@vuepic/vue-datepicker'
+
+const props = defineProps<{
+  modelValue: { month: number; year: number } | null
+  placeholder?: string
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: { month: number; year: number } | null): void
+}>()
+
+const model = ref(props.modelValue)
+
+watch(() => props.modelValue, (val) => (model.value = val))
+watch(model, (val) => emit('update:modelValue', val))
+</script>
+
+<style scoped lang="scss">
+.month-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.v-label {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 4px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.custom-vuetify-input {
+  width: 100%;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  height: 50px;
+  box-shadow: 0 2px 0 0 #ccc;
+  background-color: #f6f6f6;
+}
+
+::v-deep(.dp__input_icon_pad) {
+  background: #F6F6F6;
+  border: none;
+  box-shadow: 0 2px 0 0 #ccc;
+  border-radius: 6px;
+}
+::v-deep(.dp__input) {
+  border: 0px solid transparent;
+  padding-left: 43px;
+  color: #7B7B7B;
+}
+::v-deep(.dp__input_icon) {
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 0, 0, 0.54);
+}
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </style>

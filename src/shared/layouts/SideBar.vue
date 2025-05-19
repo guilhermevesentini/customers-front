@@ -7,6 +7,7 @@
   </v-navigation-drawer>
 </template>
 
+<<<<<<< HEAD
 <script setup lang="ts"></script>
 
 <style scoped>
@@ -14,4 +15,14 @@
     background-color: #333;
     color: #fff;
   }
+=======
+<script setup lang="ts">
+</script>
+
+<style scoped>
+.navigation-drawer {
+  background-color: #333; 
+  color: #fff;
+}
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </style>

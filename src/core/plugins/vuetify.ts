@@ -5,12 +5,21 @@
  */
 
 // Styles
+<<<<<<< HEAD
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 
 // Composables
 import { createVuetify } from "vuetify";
 import { VFileUpload } from "vuetify/labs/VFileUpload";
+=======
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
+
+// Composables
+import { createVuetify } from 'vuetify'
+import { VFileUpload } from 'vuetify/labs/VFileUpload'
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -20,6 +29,7 @@ export default createVuetify({
   defaults: {
     VBtn: {
       //rounded: true,
+<<<<<<< HEAD
       density: "comfortable",
     },
   },
@@ -27,3 +37,12 @@ export default createVuetify({
     defaultTheme: "light",
   },
 });
+=======
+      density: 'comfortable',
+    },
+  },
+  theme: {
+    defaultTheme: 'light',
+  },
+})
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43

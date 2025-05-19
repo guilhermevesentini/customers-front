@@ -12,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
   import { computed } from "vue";
 
   const props = defineProps<{
@@ -34,4 +35,28 @@
       event.preventDefault();
     }
   }
+=======
+import { computed } from 'vue'
+
+const props = defineProps<{
+  modelValue: string | number
+  label?: string
+  required?: boolean
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string | number): void
+}>()
+
+const model = computed({
+  get: () => props.modelValue,
+  set: (val) => emit('update:modelValue', val),
+})
+
+function onlyNumbers(event: KeyboardEvent) {
+  if (!/[0-9]/.test(event.key)) {
+    event.preventDefault()
+  }
+}
+>>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>

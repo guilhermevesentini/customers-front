@@ -21,10 +21,7 @@
     "json-server": "^1.0.0-beta.3",
     "localforage": "^1.10.0",
     "maska": "2.1.10",
-<<<<<<< HEAD
     "prettier-plugin-vue": "^1.1.6",
-=======
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
     "uuid": "^11.1.0",
     "vue": "^3.5.13",
     "vuetify": "^3.8.1"

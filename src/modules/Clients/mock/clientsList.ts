@@ -1,7 +1,6 @@
 import { EStatus } from "@/shared/enums/enums";
 import type { IClientPageTable } from "../widgets/types";
 
-<<<<<<< HEAD
 const firstNames = [
   "Lucas",
   "Amanda",
@@ -31,15 +30,6 @@ const statuses = [EStatus.active, EStatus.pending, EStatus.inactive];
 function generateClients(count: number): IClientPageTable[] {
   return [];
 
-=======
-const firstNames = ['Lucas', 'Amanda', 'Carlos', 'Juliana', 'Roberto', 'Beatriz', 'Fernando', 'Patrícia', 'Bruno', 'Mariana'];
-const lastNames = ['Moreira', 'Ribeiro', 'Lima', 'Silva', 'Fernandes', 'Rocha', 'Souza', 'Almeida', 'Oliveira', 'Martins'];
-const statuses = [EStatus.active, EStatus.pending, EStatus.inactive];
-
-function generateClients(count: number): IClientPageTable[] {
-  return []
-  
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
   const clients: IClientPageTable[] = [];
 
   for (let i = 0; i < count; i++) {

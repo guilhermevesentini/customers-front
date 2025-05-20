@@ -1,17 +1,8 @@
 <template>
-<<<<<<< HEAD
   <v-container class="fill-width p-0" style="height: 100%; overflow-y: auto">
     <v-card class="fill-width p-0" flat>
       <PageTile title="Clients" :loading="loading" @update:create="addClient" show-create />
       <ClientsFilters />
-=======
-  <v-container class="fill-width p-0" style="height: 100%; overflow-y: auto;">
-    <v-card class="fill-width p-0" flat>
-      <PageTile title="Clients" :loading="loading" @update:create="addClient" show-create/>
-
-      <ClientsFilters />
-
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
       <div class="overflow-y-auto p-0">
         <v-data-table
           fixed-header
@@ -25,7 +16,6 @@
           <template #item.status="{ item }">
             <BagdeStatus :status="item.details.status" />
           </template>
-<<<<<<< HEAD
           <template #item.cpf="{ item }"> {{ formatCpf(item.details.cpf) }} </template>
           <template #item.apolices="{ item }"> {{ item.products.length || 0 }} </template>
           <template #item.actions="{ item }">
@@ -34,36 +24,6 @@
             </v-icon>
             <v-icon class="me-5" size="small" @click="editClient(item.id)"> mdi-pencil </v-icon>
             <v-icon color="error" size="small" @click="deleteItem(item.id)"> mdi-delete </v-icon>
-=======
-          <template #item.cpf="{ item }">
-            {{formatCpf(item.details.cpf)}}
-          </template>
-          <template #item.apolices="{ item }">
-            {{ item.products.length || 0 }}
-          </template>
-          <template #item.actions="{ item }">
-            <v-icon
-              class="me-5"
-              size="small"
-              @click="openClient(item.id)"
-            >
-              mdi-eye-outline
-            </v-icon>
-            <v-icon
-              class="me-5"
-              size="small"
-              @click="editClient(item.id)"
-            >
-              mdi-pencil
-            </v-icon>
-            <v-icon
-              color="error"
-              size="small"
-              @click="deleteItem(item.id)"
-            >
-              mdi-delete
-            </v-icon>
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
           </template>
         </v-data-table>
       </div>
@@ -71,7 +31,6 @@
   </v-container>
 </template>
 
-<<<<<<< HEAD
 <script setup lang="ts">
   import PageTile from "@/shared/components/ui/titles/PageTile.vue";
   import { ref } from "vue";
@@ -125,60 +84,6 @@
   };
 
   onMounted(() => getAllClients());
-=======
-
-<script setup lang="ts">
-  import PageTile from '@/shared/components/ui/titles/PageTile.vue'
-  import { ref } from 'vue'
-  import useClientsPage from './widgets/useClientsPage'
-  import ClientsFilters from './widgets/filters/ClientsFilters.vue'
-  import { EHeadersClientsPage } from './widgets/enums'
-  import BagdeStatus from '@/shared/components/ui/bagde/BagdeStatus.vue'
-  import { ClientsApiAdapter } from './services/adapters/ClientsAdapter'
-  import { ClientFactory } from '@/domain/clients/factories/ClientFactory'
-  import type { IClient } from './interfaces/IClient'
-  import { formatCpf } from '@/core/utils/utils'
-  
-  const loading = ref(false)
-  const clientsList = ref<IClient[]>([])
-
-  const router = useRouter()
-
-  const {searchedText} = useClientsPage()
-   
-  function addClient () {
-    router.push('/clients/create');
-  }
-  
-  function openClient (id: string) {
-    router.push(`/clients/client/${id}`);
-  }
-  
-  function editClient (id: string) {
-    router.push(`clients/edit/${id}`);
-  }
-  
-  async function deleteItem(id: string) {
-    try {
-      await ClientsApiAdapter.delete(id)      
-    } finally { getAllClients() }
-  }
-
-  const getAllClients = async () => {
-    loading.value = true
-    try {
-      const response = await ClientsApiAdapter.getAll()
-      clientsList.value = response?.map(client => ClientFactory.create(client).getClient)
-    } catch (error) {
-      console.error('Erro ao buscar clientes:', error)
-      clientsList.value = []
-    } finally {
-      loading.value = false
-    }
-  }
-
-  onMounted(() => getAllClients())
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>
 
 <style scoped></style>

@@ -10,21 +10,11 @@ The following example assumes a component located at `src/components/MyComponent
 
 ```vue
 <template>
-<<<<<<< HEAD
   <div><MyComponent /></div>
 </template>
 
 <script lang="ts" setup>
   //
-=======
-  <div>
-    <MyComponent />
-  </div>
-</template>
-
-<script lang="ts" setup>
-//
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>
 ```
 
@@ -32,20 +22,10 @@ When your template is rendered, the component's import will automatically be inl
 
 ```vue
 <template>
-<<<<<<< HEAD
   <div><MyComponent /></div>
 </template>
 
 <script lang="ts" setup>
   import MyComponent from "@/components/MyComponent.vue";
-=======
-  <div>
-    <MyComponent />
-  </div>
-</template>
-
-<script lang="ts" setup>
-import MyComponent from "@/components/MyComponent.vue";
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>
 ```

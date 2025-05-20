@@ -18,21 +18,11 @@
         @click:clear="clearDate"
       />
     </template>
-<<<<<<< HEAD
     <v-date-picker hide-header v-model="innerValue" @update:model-value="onUpdate" />
-=======
-
-    <v-date-picker
-      hide-header
-      v-model="innerValue"
-      @update:model-value="onUpdate"
-    />
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
   </v-menu>
 </template>
 
 <script setup lang="ts">
-<<<<<<< HEAD
   import { ref, watch, computed } from "vue";
   import InputText from "../inputs/InputText.vue";
 
@@ -74,44 +64,4 @@
   }
 
   const formattedValue = computed(() => formatDateToBr(innerValue.value));
-=======
-import { ref, watch, computed } from 'vue'
-import InputText from '../inputs/InputText.vue'
-
-const props = defineProps<{
-  modelValue: string | Date | null
-  label?: string
-  rules?: any[]
-  disabled?: boolean
-}>()
-
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | Date | null): void
-}>()
-
-const menu = ref(false)
-const innerValue = ref(props.modelValue)
-
-watch(() => props.modelValue, (val) => {
-  innerValue.value = val
-})
-
-function onUpdate(value: string | Date | null) {
-  emit('update:modelValue', value)
-  menu.value = false
-}
-
-function clearDate() {
-  innerValue.value = null
-  emit('update:modelValue', null)
-}
-
-function formatDateToBr(date: string | Date | null): string {
-  if (!date) return ''
-  const d = new Date(date)
-  return d.toLocaleDateString('pt-BR')
-}
-
-const formattedValue = computed(() => formatDateToBr(innerValue.value))
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
 </script>

@@ -6,18 +6,11 @@
           <h3 class="ma-0">{{ title }}</h3>
           <BagdeStatus class="ml-5" v-if="status" :status="status || EStatus.inactive" />
         </div>
-<<<<<<< HEAD
 
         <h5 class="ma-0 text-medium-emphasis">{{ subtitle }}</h5>
       </div>
     </div>
 
-=======
-        <h5 class="ma-0 text-medium-emphasis">{{ subtitle }}</h5>
-      </div>
-    </div>
-    
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
     <div>
       <v-btn
         class="ml-3"
@@ -41,11 +34,7 @@
         prepend-icon="mdi-plus"
         @click="emit('update:create')"
       >
-<<<<<<< HEAD
         create
-=======
-      create
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43
       </v-btn>
       <v-btn
         class="ml-3"
@@ -74,7 +63,6 @@
 </template>
 
 <script setup lang="ts">
-<<<<<<< HEAD
   import { EStatus } from "@/shared/enums/enums";
   import BagdeStatus from "../bagde/BagdeStatus.vue";
 
@@ -103,33 +91,3 @@
     font-weight: 400;
   }
 </style>
-=======
-import { EStatus } from '@/shared/enums/enums';
-import BagdeStatus from '../bagde/BagdeStatus.vue';
-
-defineProps<{
-  title: string
-  subtitle?: string
-  status?: string
-  loading?: boolean
-  showSave?: boolean
-  showCreate?: boolean
-  showEdit?: boolean
-  showDelete?: boolean
-}>()
-
-const emit = defineEmits<{
-  (e: 'update:save'): void
-  (e: 'update:create'): void
-  (e: 'update:edit'): void
-  (e: 'update:delete'): void
-}>()
-</script>
-
-<style lang="scss" scoped>
-h5 {
- color: rgb(173, 173, 173);
- font-weight: 400;
-}
-</style>
->>>>>>> d1b1fd48a20475537a0cd78cf6d3c747f9b8ac43

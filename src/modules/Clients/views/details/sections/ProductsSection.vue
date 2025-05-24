@@ -19,7 +19,7 @@
             <v-label>Valor</v-label> <strong>{{ `R$ ${product.price.toFixed(2)}` }}</strong>
           </v-col>
           <v-col cols="12" md="12">
-            <v-label>Files</v-label> <FilesList :details="product.files" />
+            <v-label>Arquivos</v-label> <FilesList :details="product.files" />
           </v-col>
         </v-row>
       </v-container>
@@ -30,9 +30,9 @@
 <script setup lang="ts">
   import { formatDateToBr, getTextFromOptions } from "@/core/utils/utils";
   import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
-  import BagdeStatus from "@/shared/components/ui/bagde/BagdeStatus.vue";
-  import FilesList from "@/shared/components/ui/files/FilesList.vue";
-  import { companiesOpt, tipoOpt } from "@/shared/enums/enums";
+  import FilesList from "@/shared/components/files/FilesList.vue";
+  import { companiesOpt, tipoOpt } from "@/core/enums/enums";
+  import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
 
   defineProps<{
     details: IProduct[] | undefined;

@@ -4,7 +4,7 @@
       <PageTile
         :title="client?.details?.name || ''"
         :subtitle="`CPF: ${formatCpf(client?.details?.cpf || '--')}`"
-        btnText="Create"
+        btnText="Criar novo"
         icon="mdi-plus"
         :status="client?.details.status"
         show-edit
@@ -15,21 +15,21 @@
     </v-card>
     <v-card class="fill-width p-0" flat>
       <v-tabs v-model="tab" bg-color="#fffff" class="rounded-lg" density="comfortable">
-        <v-tab value="details">Details</v-tab> <v-tab value="profile">Profile</v-tab>
-        <v-tab value="products">Products</v-tab>
+        <v-tab value="details">Detalhes</v-tab> <v-tab value="profile">Perfil</v-tab>
+        <v-tab value="products">Produtos</v-tab>
       </v-tabs>
     </v-card>
     <v-window class="mb-5" v-model="tab">
       <v-window-item value="details">
-        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Personal information">
+        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Detalhes do cliente">
           <v-container> <DetailsSection :details="client?.details" /> </v-container>
         </v-card>
-        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Address">
+        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Endereço">
           <v-container> <AddressSection :details="client?.address" /> </v-container>
         </v-card>
       </v-window-item>
       <v-window-item value="profile">
-        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Profile">
+        <v-card class="mt-5 mr-1 ml-1 mb-5" title="Perfil">
           <v-container> <ProfileSection :details="client?.riskProfile" /> </v-container>
         </v-card>
       </v-window-item>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-  import PageTile from "@/shared/components/ui/titles/PageTile.vue";
+  import PageTile from "@/shared/components/titles/PageTile.vue";
   import type { IClient } from "../../interfaces/IClient";
   import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
   import { ClientsApiAdapter } from "../../services/adapters/ClientsAdapter";

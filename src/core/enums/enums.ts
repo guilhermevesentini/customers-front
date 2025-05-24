@@ -9,9 +9,9 @@ export const tipoOpt = [
 ];
 
 export const statusOpt = [
-  { title: "Active", value: "1" },
-  { title: "Pending", value: "2" },
-  { title: "Inactive", value: "3" },
+  { title: "Ativo", value: "1" },
+  { title: "Pendente", value: "2" },
+  { title: "Inativo", value: "3" },
 ];
 
 export const companiesOpt = [
@@ -41,3 +41,47 @@ export enum EStatus {
   pending = "2",
   inactive = "3",
 }
+
+export const ESimNaoOpt = [
+  { title: "Sim", value: "1" },
+  { title: "Não", value: "1" },
+];
+
+export const ELocalPernoiteOpt = [
+  { title: "Residência", value: "1" },
+  { title: "Empresa", value: "2" },
+  { title: "Via pública", value: "3" },
+];
+
+export const ESexoOpt = [
+  { title: "Masculino", value: "1" },
+  { title: "Feminino", value: "2" },
+  { title: "Outro", value: "3" },
+];
+
+export const EEstadoCivilOpt = [
+  { title: "Solteiro", value: "1" },
+  { title: "Casado", value: "2" },
+  { title: "Divorciado", value: "3" },
+  { title: "Viúvo", value: "4" },
+];
+
+export const EUtilizacaoVeiculoOpt = [
+  { title: "Trabalho", value: "1" },
+  { title: "Passeio", value: "2" },
+  { title: "Aplicativo", value: "3" },
+  { title: "Frotista", value: "4" },
+];
+
+export const ECoberturaOpt = [
+  { title: "Completa", value: "1" },
+  { title: "Roubo e furto", value: "2" },
+  { title: "Incêndio", value: "3" },
+  { title: "Terceiros", value: "4" },
+];
+
+export const EFranquiaOpt = [
+  { title: "Reduzida", value: "1" },
+  { title: "Normal", value: "2" },
+  { title: "Ampliada", value: "3" },
+];

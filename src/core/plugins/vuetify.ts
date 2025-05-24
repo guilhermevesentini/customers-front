@@ -11,6 +11,7 @@ import "vuetify/styles";
 // Composables
 import { createVuetify } from "vuetify";
 import { VFileUpload } from "vuetify/labs/VFileUpload";
+import { pt } from "vuetify/locale";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -25,5 +26,10 @@ export default createVuetify({
   },
   theme: {
     defaultTheme: "light",
+  },
+  locale: {
+    locale: "pt",
+    fallback: "en",
+    messages: { pt },
   },
 });

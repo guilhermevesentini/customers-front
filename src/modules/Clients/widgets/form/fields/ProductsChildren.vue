@@ -35,16 +35,16 @@
         <v-col cols="12" md="6">
           <DatePickerInput
             v-model="product.start"
-            label="Start *"
+            label="Início de vigência*"
             clearable
             required
-            :rules="requiredDate('start')"
+            :rules="requiredDate()"
           />
         </v-col>
         <v-col cols="12" md="6">
           <DatePickerInput
             v-model="product.end"
-            label="End *"
+            label="Fim de vigência*"
             clearable
             :disabled="!product.start"
             required
@@ -67,11 +67,11 @@
     tipoRules,
   } from "@/core/validators/validationsRules";
   import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
-  import DatePickerInput from "@/shared/components/ui/datepicker/DatePickerInput.vue";
-  import InputCurrency from "@/shared/components/ui/inputs/InputCurrency.vue";
-  import Select from "@/shared/components/ui/selects/Select.vue";
-  import FileUploader from "@/shared/components/ui/upload/FileUploader.vue";
-  import { companiesOpt, statusOpt, tipoOpt } from "@/shared/enums/enums";
+  import DatePickerInput from "@/shared/components/datepicker/DatePickerInput.vue";
+  import InputCurrency from "@/shared/components/inputs/InputCurrency.vue";
+  import Select from "@/shared/components/selects/Select.vue";
+  import FileUploader from "@/shared/components/upload/FileUploader.vue";
+  import { companiesOpt, statusOpt, tipoOpt } from "@/core/enums/enums";
 
   const props = defineProps<{ product: IProduct }>();
 

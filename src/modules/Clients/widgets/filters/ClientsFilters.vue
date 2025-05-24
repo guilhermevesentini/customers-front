@@ -17,9 +17,9 @@
 
 <script setup lang="ts">
   import { ref } from "vue"; // Importando 'ref' para reatividade
-  import InputText from "@/shared/components/ui/inputs/InputText.vue";
+  import InputText from "@/shared/components/inputs/InputText.vue";
   import useClientsFilters from "./useClientsFilters";
-  import MonthPicker from "@/shared/components/ui/datepicker/MonthPicker.vue";
+  import MonthPicker from "@/shared/components/datepicker/MonthPicker.vue";
 
   defineProps<{
     showMonthPicker?: boolean;

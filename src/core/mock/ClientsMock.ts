@@ -8,11 +8,12 @@ function generateClients(): IClient[] {
 
   let clientIdCounter = 1;
 
-  for (let month = 0; month < 12; month++) {
+  // Alterado de month = 0 a month = -1 para incluir janeiro
+  for (let month = -1; month < 12; month++) {
     const clientsCount = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
 
     for (let i = 0; i < clientsCount; i++) {
-      const endDate = new Date(currentYear, month, 15 + i);
+      const endDate = new Date(currentYear, month + 1, 15 + i); // Ajustado para mês correto
 
       const policiesCount = Math.floor(Math.random() * 5) + 1;
       const policies: IProduct[] = [];
@@ -22,7 +23,7 @@ function generateClients(): IClient[] {
         const company = `${Math.floor(Math.random() * 5) + 1}`;
         const price = Math.floor(Math.random() * 1000) + 300;
         const status = possibleStatus[Math.floor(Math.random() * possibleStatus.length)];
-        const start = new Date(currentYear, month, Math.floor(Math.random() * 28) + 1);
+        const start = new Date(currentYear, month + 1, Math.floor(Math.random() * 28) + 1); // Ajustado
         const end = new Date(start);
         end.setMonth(start.getMonth() + 1);
 

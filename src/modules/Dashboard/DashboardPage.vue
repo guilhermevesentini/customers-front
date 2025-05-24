@@ -2,11 +2,12 @@
   <v-container style="width: 100%; height: calc(100dvh - 10vh); overflow: auto">
     <v-row>
       <v-col cols="12">
-        <v-card class="fill-width p-0 card-dashoard" flat style="height: 100px">
+        <v-card class="fill-width card-dashoard" flat style="padding: 0; margin: 0">
           <v-col cols="12" md="3">
-            <v-label>Month:</v-label> <MonthPicker v-model="filters.selectedMonth" />
+            <v-label>Mês:</v-label>
+            <DatePickerMonth v-model="filters.selectedMonth" />
           </v-col>
-          <v-col cols="12" md="3" style="margin-top: 22px">
+          <v-col cols="12" md="3">
             <v-label>Status:</v-label>
             <Select
               v-model="filters.status"
@@ -15,11 +16,11 @@
               :items="statusOpt"
             />
           </v-col>
-          <v-col cols="12" md="3" style="margin-top: 22px">
+          <v-col cols="12" md="3">
             <v-label>Tipo de seguro:</v-label>
             <Select v-model="filters.tipo" placeholder="Selecione..." clearable :items="tipoOpt" />
           </v-col>
-          <v-col cols="12" md="3" style="margin-top: 22px">
+          <v-col cols="12" md="3">
             <v-label>Seguradora:</v-label>
             <Select
               v-model="filters.company"
@@ -30,33 +31,7 @@
           </v-col>
         </v-card>
       </v-col>
-      <v-col cols="12" md="3" v-for="resume in CardsValues" :key="resume.id">
-        <v-card class="fill-width p-0 card-dashoard" flat>
-          <v-row style="width: 100%; padding: 0; margin: 0">
-            <v-col cols="4" class="card-dashoard__icon" style="width: 100%">
-              <v-icon size="small" class="icon"> {{ resume.icon }} </v-icon>
-            </v-col>
-            <v-col class="card-dashoard__content">
-              <v-row style="width: 100%; padding: 0; margin: 0">
-                <v-col
-                  cols="12"
-                  class="card-dashoard__content--title"
-                  style="width: 100%; padding: 0"
-                >
-                  {{ resume.title }}
-                </v-col>
-                <v-col
-                  class="card-dashoard__content--value"
-                  cols="12"
-                  style="width: 100%; padding: 0"
-                >
-                  {{ resume.value }}
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
+      <ResumeCards :cardsValues="CardsValues" />
       <v-col cols="12"> <ApolicesTable :apolices-list="apolicesList" /> </v-col>
     </v-row>
   </v-container>
@@ -66,15 +41,14 @@
   import { useAppStore } from "@/core/stores/appStore";
   import ApolicesTable from "./ApolicesTable.vue";
   import type { IApolicesList } from "@/core/stores/types";
-  import MonthPicker from "@/shared/components/ui/datepicker/MonthPicker.vue";
-  import Select from "@/shared/components/ui/selects/Select.vue";
-  import { companiesOpt, EStatus, statusOpt, tipoOpt } from "@/shared/enums/enums";
+  import Select from "@/shared/components/selects/Select.vue";
+  import { companiesOpt, EStatus, statusOpt, tipoOpt } from "@/core/enums/enums";
+  import type { ECardsValues } from "./types";
+  import DatePickerMonth from "@/shared/components/datepicker/DatePickerMonth.vue";
+  import ResumeCards from "../ResumeCards.vue";
 
   const filters = ref({
-    selectedMonth: {
-      month: new Date().getMonth(),
-      year: new Date().getFullYear(),
-    },
+    selectedMonth: new Date(),
     status: null,
     tipo: null,
     company: null,
@@ -88,11 +62,15 @@
       clients.value.flatMap((client) =>
         client.products
           .filter((product) => {
+            const startDate = new Date(product.start);
             const endDate = new Date(product.end);
 
-            const matchesMonth =
-              endDate.getMonth() === filters.value.selectedMonth.month &&
-              endDate.getFullYear() === filters.value.selectedMonth.year;
+            const selected = filters.value.selectedMonth;
+
+            const monthStart = new Date(selected.getFullYear(), selected.getMonth(), 1);
+            const monthEnd = new Date(selected.getFullYear(), selected.getMonth() + 1, 0);
+
+            const matchesMonth = startDate <= monthEnd && endDate >= monthStart;
 
             const matchesStatus =
               !filters.value.status || String(product.status) === String(filters.value.status);
@@ -118,7 +96,7 @@
     return clients.value.filter((client) => clientIds.has(client.id));
   });
 
-  const CardsValues = computed(() => {
+  const CardsValues = computed((): ECardsValues[] => {
     const totalApolices = filteredProducts.value
       .reduce((acc, product) => acc + product.price, 0)
       .toFixed(2);
@@ -126,13 +104,13 @@
     return [
       {
         value: clientsFiltered.value.length.toString() || "0",
-        title: "Total Clients",
+        title: "Clientes",
         icon: "mdi-account-group",
         id: 1,
       },
       {
         value: filteredProducts.value.length,
-        title: "Total Apólices",
+        title: "Apólices",
         icon: "mdi-file-account-outline",
         id: 2,
       },
@@ -140,13 +118,13 @@
         value: filteredProducts.value.filter(
           (product) => String(product.status) === String(EStatus.pending),
         ).length,
-        title: "Total pending",
+        title: "Pendentes",
         icon: "mdi-alert",
         id: 3,
       },
       {
         value: `R$ ${totalApolices}`,
-        title: "Expect income",
+        title: "Receita",
         icon: "mdi-cash-register",
         id: 4,
       },

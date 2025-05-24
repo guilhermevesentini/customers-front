@@ -1,4 +1,4 @@
-import { EStatus } from "@/shared/enums/enums";
+import { EStatus } from "@/core/enums/enums";
 import type { IDetails } from "@/modules/Clients/interfaces/IDetails";
 
 export class Details {

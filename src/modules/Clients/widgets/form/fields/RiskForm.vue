@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-5" title="Automobile Risk Questionnaire">
+  <v-card class="mb-5" title="Questionário de Risco Automóvel">
     <v-form v-model="valid" lazy-validation>
       <v-container v-if="form">
         <v-row>
@@ -10,7 +10,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.hasGarage"
-              :items="['Sim', 'Não']"
+              :items="ESimNaoOpt"
               label="O veículo dorme em garagem fechada?"
               required
             />
@@ -18,7 +18,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.parkingLocation"
-              :items="['Residência', 'Empresa', 'Via pública']"
+              :items="ELocalPernoiteOpt"
               label="Local onde o veículo pernoita"
               required
             />
@@ -52,7 +52,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.driverGender"
-              :items="['Masculino', 'Feminino', 'Outro']"
+              :items="ESexoOpt"
               label="Sexo"
               required
             />
@@ -60,7 +60,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.maritalStatus"
-              :items="['Solteiro', 'Casado', 'Divorciado', 'Viúvo']"
+              :items="EEstadoCivilOpt"
               label="Estado civil"
               required
             />
@@ -78,7 +78,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.vehicleUse"
-              :items="['Trabalho', 'Passeio', 'Aplicativo', 'Frotista']"
+              :items="EUtilizacaoVeiculoOpt"
               label="Utilização do veículo"
               required
             />
@@ -86,7 +86,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.hasYoungDriver"
-              :items="['Sim', 'Não']"
+              :items="ESimNaoOpt"
               label="Alguém com menos de 26 anos dirige o veículo?"
               required
             />
@@ -114,7 +114,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.coverageType"
-              :items="['Completa', 'Roubo e furto', 'Incêndio', 'Terceiros']"
+              :items="ECoberturaOpt"
               label="Tipo de cobertura"
               required
             />
@@ -122,7 +122,7 @@
           <v-col cols="12" md="6">
             <Select
               v-model="form.riskProfile.franchiseType"
-              :items="['Reduzida', 'Normal', 'Ampliada']"
+              :items="EFranquiaOpt"
               label="Tipo de franquia"
               required
             />
@@ -143,10 +143,19 @@
 </template>
 
 <script setup lang="ts">
+  import {
+    ECoberturaOpt,
+    EEstadoCivilOpt,
+    EFranquiaOpt,
+    ELocalPernoiteOpt,
+    ESexoOpt,
+    ESimNaoOpt,
+    EUtilizacaoVeiculoOpt,
+  } from "@/core/enums/enums";
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import InputText from "@/shared/components/ui/inputs/InputText.vue";
-  import Select from "@/shared/components/ui/selects/Select.vue";
-  import Switch from "@/shared/components/ui/switches/Switch.vue";
+  import InputText from "@/shared/components/inputs/InputText.vue";
+  import Select from "@/shared/components/selects/Select.vue";
+  import Switch from "@/shared/components/switches/Switch.vue";
   import { ref } from "vue";
 
   const valid = ref(false);

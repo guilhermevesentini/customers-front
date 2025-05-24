@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-5" title="Address">
+  <v-card class="mb-5" title="Endereço">
     <v-container>
       <v-form ref="formRef" v-model="valid" v-if="form">
         <v-container>
@@ -7,7 +7,7 @@
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.address.address"
-                label="Address*"
+                label="Endereço *"
                 required
                 :rules="addressRules"
               />
@@ -15,7 +15,7 @@
             <v-col cols="12" md="6">
               <InputNumber
                 v-model="form.address.number"
-                label="Number *"
+                label="Número *"
                 required
                 inputmode="numeric"
                 pattern="[0-9]*"
@@ -23,15 +23,15 @@
               />
             </v-col>
             <v-col cols="12" md="6">
-              <InputText v-model="form.address.complement" label="Complement" />
+              <InputText v-model="form.address.complement" label="Complemento" />
             </v-col>
             <v-col cols="12" md="6">
-              <InputText v-model="form.address.city" label="City *" required :rules="cityRules" />
+              <InputText v-model="form.address.city" label="Cidade *" required :rules="cityRules" />
             </v-col>
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.address.state"
-                label="State *"
+                label="Estado *"
                 required
                 :rules="stateRules"
               />
@@ -39,7 +39,7 @@
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.address.zipcode"
-                label="Zipcode *"
+                label="CEP *"
                 required
                 :rules="zipcodeRules"
               />
@@ -60,8 +60,8 @@
     zipcodeRules,
   } from "@/core/validators/validationsRules";
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import InputNumber from "@/shared/components/ui/inputs/InputNumber.vue";
-  import InputText from "@/shared/components/ui/inputs/InputText.vue";
+  import InputNumber from "@/shared/components/inputs/InputNumber.vue";
+  import InputText from "@/shared/components/inputs/InputText.vue";
 
   const formRef = ref();
   const valid = ref(false);

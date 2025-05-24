@@ -31,7 +31,7 @@
 <script setup lang="ts">
   import { ref } from "vue";
   import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
-  import PageTile from "@/shared/components/ui/titles/PageTile.vue";
+  import PageTile from "@/shared/components/titles/PageTile.vue";
   import Products from "./fields/Products.vue";
   import { ClientsApiAdapter } from "../../services/adapters/ClientsAdapter";
   import type { IClient } from "../../interfaces/IClient";
@@ -52,9 +52,9 @@
   const router = useRouter();
 
   const tabItems = ref([
-    { name: "Details", isPending: false },
-    { name: "Profile", isPending: false },
-    { name: "Products", isPending: false },
+    { name: "Detalhes", isPending: false },
+    { name: "Perfil", isPending: false },
+    { name: "Produtos", isPending: false },
   ]);
 
   provide("clientForm", form);

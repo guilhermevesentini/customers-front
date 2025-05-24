@@ -5,7 +5,7 @@
     prepend-icon="mdi-plus"
     style="width: 100%; height: 40px"
     @click="handleAdd"
-    >Add contract</v-btn
+    >Adicionar contrato</v-btn
   >
   <v-container class="mb-5" style="padding: 0">
     <v-card
@@ -13,10 +13,10 @@
       v-if="!form?.products.length"
       style="min-height: 200px"
     >
-      To add a contract click on the button "+ ADD CONTRACT"
+      Para adicionar um contrato, clique no botão "+ Adicionar contrato"
     </v-card>
     <v-card class="mb-5" v-for="product in form?.products" v-else>
-      <PageTile title="New Product" @update:delete="handleRemove(product)" show-delete />
+      <PageTile title="Novo contrato" @update:delete="handleRemove(product)" show-delete />
       <ProductsChildren ref="childrenRefs" :product="product" />
     </v-card>
   </v-container>
@@ -28,7 +28,7 @@
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
   import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
   import ProductsChildren from "./ProductsChildren.vue";
-  import PageTile from "@/shared/components/ui/titles/PageTile.vue";
+  import PageTile from "@/shared/components/titles/PageTile.vue";
 
   const form = inject<IClient>("clientForm");
   const childrenRefs = ref<InstanceType<typeof ProductsChildren>[]>([]);

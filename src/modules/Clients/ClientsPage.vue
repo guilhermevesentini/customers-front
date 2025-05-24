@@ -1,7 +1,7 @@
 <template>
   <v-container class="fill-width p-0" style="height: 100%; overflow-y: auto">
     <v-card class="fill-width p-0" flat>
-      <PageTile title="Clients" :loading="loading" @update:create="addClient" show-create />
+      <PageTile title="Clientes" :loading="loading" @update:create="addClient" show-create />
       <ClientsFilters />
       <div class="overflow-y-auto p-0">
         <v-data-table
@@ -32,12 +32,12 @@
 </template>
 
 <script setup lang="ts">
-  import PageTile from "@/shared/components/ui/titles/PageTile.vue";
+  import PageTile from "@/shared/components/titles/PageTile.vue";
   import { ref } from "vue";
   import useClientsPage from "./widgets/useClientsPage";
   import ClientsFilters from "./widgets/filters/ClientsFilters.vue";
   import { EHeadersClientsPage } from "./widgets/enums";
-  import BagdeStatus from "@/shared/components/ui/bagde/BagdeStatus.vue";
+  import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
   import { ClientsApiAdapter } from "./services/adapters/ClientsAdapter";
   import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
   import type { IClient } from "./interfaces/IClient";

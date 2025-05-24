@@ -1,13 +1,13 @@
 <template>
   <v-row>
-    <v-col cols="12" md="6"> <v-label>Address</v-label> {{ details?.address || "--" }} </v-col>
-    <v-col cols="12" md="6"> <v-label>Number</v-label> {{ details?.number || "--" }} </v-col>
+    <v-col cols="12" md="6"> <v-label>Endereço</v-label> {{ details?.address || "--" }} </v-col>
+    <v-col cols="12" md="6"> <v-label>Número</v-label> {{ details?.number || "--" }} </v-col>
     <v-col cols="12" md="6">
-      <v-label>Complement</v-label> {{ details?.complement || "--" }}
+      <v-label>Complemento</v-label> {{ details?.complement || "--" }}
     </v-col>
-    <v-col cols="12" md="6"> <v-label>City</v-label> {{ details?.city || "--" }} </v-col>
-    <v-col cols="12" md="6"> <v-label>State</v-label> {{ details?.state || "--" }} </v-col>
-    <v-col cols="12" md="6"> <v-label>Zipcode</v-label> {{ details?.zipcode || "--" }} </v-col>
+    <v-col cols="12" md="6"> <v-label>Cidade</v-label> {{ details?.city || "--" }} </v-col>
+    <v-col cols="12" md="6"> <v-label>Estado</v-label> {{ details?.state || "--" }} </v-col>
+    <v-col cols="12" md="6"> <v-label>CEP</v-label> {{ details?.zipcode || "--" }} </v-col>
   </v-row>
 </template>
 

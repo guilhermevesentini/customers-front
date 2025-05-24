@@ -2,7 +2,7 @@
   <v-container>
     <v-file-upload
       v-model="selectedFiles"
-      label="Upload files"
+      label="Importar arquivos"
       multiple
       prepend-icon="mdi-paperclip"
       show-size
@@ -16,7 +16,7 @@
       class="d-flex justify-center align-center"
       style="height: 100px"
     >
-      No uploaded files
+      Não contém arquivos
     </span>
     <v-list v-if="modelValue.length" style="padding: 1rem 10px">
       <v-list-item v-for="(file, index) in modelValue" :key="index" class="border rounded mb-2">

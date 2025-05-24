@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-5" title="Personal information">
+  <v-card class="mb-5" title="Detalhes do cliente">
     <v-container>
       <v-form ref="formRef" v-model="valid">
         <v-container v-if="form">
@@ -7,7 +7,7 @@
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.details.name"
-                label="First name *"
+                label="Nome Completo *"
                 required
                 :rules="nameRules"
               />
@@ -48,7 +48,7 @@
               <InputText
                 v-model="form.details.phone"
                 v-maska:[phoneMask]
-                label="Phone *"
+                label="Telefone *"
                 required
                 :rules="phoneRules"
               />
@@ -62,9 +62,9 @@
 
 <script setup lang="ts">
   import { ref } from "vue";
-  import InputText from "@/shared/components/ui/inputs/InputText.vue";
+  import InputText from "@/shared/components/inputs/InputText.vue";
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import DatePickerInput from "@/shared/components/ui/datepicker/DatePickerInput.vue";
+  import DatePickerInput from "@/shared/components/datepicker/DatePickerInput.vue";
   import { cpfMask, phoneMask } from "@/core/utils/utils";
   import {
     cpfRules,
@@ -73,8 +73,8 @@
     phoneRules,
     statusRules,
   } from "@/core/validators/validationsRules";
-  import { statusOpt } from "@/shared/enums/enums";
-  import Select from "@/shared/components/ui/selects/Select.vue";
+  import { statusOpt } from "@/core/enums/enums";
+  import Select from "@/shared/components/selects/Select.vue";
 
   const formRef = ref();
   const valid = ref(false);

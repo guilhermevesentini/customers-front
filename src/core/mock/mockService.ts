@@ -1,7 +1,7 @@
 import { ClientsApiAdapter } from "@/modules/Clients/services/adapters/ClientsAdapter";
-import { mockClient } from "./ClientsMock";
 import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
 import { useAppStore } from "../stores/appStore";
+import { mockClient } from "./ClientsMock";
 
 export default function mockService() {
   const loading = ref(false);

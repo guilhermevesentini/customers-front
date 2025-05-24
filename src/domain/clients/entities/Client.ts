@@ -3,7 +3,7 @@ import { Files } from "@/domain/shared/Document/Document";
 import { RiskProfile } from "./RiskProfile";
 import { Products } from "./Products";
 import type { IClient } from "@/modules/Clients/interfaces/IClient";
-import { EStatus } from "@/shared/enums/enums";
+import { EStatus } from "@/core/enums/enums";
 import { Details } from "./Details";
 
 export class Client {

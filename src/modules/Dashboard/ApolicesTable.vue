@@ -30,9 +30,9 @@
 
 <script setup lang="ts">
   import { formatDateToBr, getTextFromOptions } from "@/core/utils/utils";
-  import BagdeStatus from "@/shared/components/ui/bagde/BagdeStatus.vue";
+  import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
   import type { IApolicesList } from "@/core/stores/types";
-  import { companiesOpt, tipoOpt } from "@/shared/enums/enums";
+  import { companiesOpt, tipoOpt } from "@/core/enums/enums";
 
   defineProps<{
     apolicesList: IApolicesList;
@@ -46,9 +46,9 @@
     { key: "status", title: "Status", width: "20" },
     { key: "description", title: "Descrição" },
     { key: "tipo", title: "Tipo" },
-    { key: "company", title: "company" },
-    { key: "vigencia", title: "vigencia" },
-    { key: "price", title: "price" },
+    { key: "company", title: "Seguradora" },
+    { key: "vigencia", title: "Vigência" },
+    { key: "price", title: "Preço" },
     { key: "actions", title: "Açoes", sortable: false, width: "70" },
   ];
 

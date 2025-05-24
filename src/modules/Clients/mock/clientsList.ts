@@ -1,4 +1,4 @@
-import { EStatus } from "@/shared/enums/enums";
+import { EStatus } from "@/core/enums/enums";
 import type { IClientPageTable } from "../widgets/types";
 
 const firstNames = [

@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import FileUploader from "@/shared/components/ui/upload/FileUploader.vue";
+  import FileUploader from "@/shared/components/upload/FileUploader.vue";
   import { watch } from "vue";
 
   const valid = ref(false);

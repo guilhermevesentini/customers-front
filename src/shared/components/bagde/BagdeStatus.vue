@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import { EStatus } from "@/shared/enums/enums";
+  import { EStatus } from "@/core/enums/enums";
 
   defineProps<{
     status: EStatus | string;
@@ -45,11 +45,11 @@
   const handleText = (status: EStatus) => {
     switch (status) {
       case EStatus.active:
-        return "Active";
+        return "Ativo";
       case EStatus.pending:
-        return "pending";
+        return "Pendente";
       case EStatus.inactive:
-        return "Inactive";
+        return "Inativo";
       default:
         return "";
     }

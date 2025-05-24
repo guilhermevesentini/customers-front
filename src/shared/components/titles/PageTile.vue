@@ -22,7 +22,7 @@
         prepend-icon="mdi-content-save"
         @click="emit('update:save')"
       >
-        save
+        Salvar
       </v-btn>
       <v-btn
         class="ml-3"
@@ -34,7 +34,7 @@
         prepend-icon="mdi-plus"
         @click="emit('update:create')"
       >
-        create
+        Criar
       </v-btn>
       <v-btn
         class="ml-3"
@@ -45,7 +45,7 @@
         prepend-icon="mdi-pencil"
         @click="emit('update:edit')"
       >
-        edit
+        Editar
       </v-btn>
       <v-btn
         class="ml-3"
@@ -56,14 +56,14 @@
         prepend-icon="mdi-delete"
         @click="emit('update:delete')"
       >
-        delete
+        Excluir
       </v-btn>
     </div>
   </v-card-title>
 </template>
 
 <script setup lang="ts">
-  import { EStatus } from "@/shared/enums/enums";
+  import { EStatus } from "@/core/enums/enums";
   import BagdeStatus from "../bagde/BagdeStatus.vue";
 
   defineProps<{

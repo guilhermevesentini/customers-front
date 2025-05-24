@@ -1,4 +1,4 @@
-import type { EStatus } from "@/shared/enums/enums";
+import type { EStatus } from "@/core/enums/enums";
 
 export interface IClientPageTable {
   name: string;

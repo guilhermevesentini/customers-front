@@ -63,7 +63,6 @@
 <script setup lang="ts">
   import { ref } from "vue";
   import InputText from "@/shared/components/inputs/InputText.vue";
-  import type { IClient } from "@/modules/Clients/interfaces/IClient";
   import DatePickerInput from "@/shared/components/datepicker/DatePickerInput.vue";
   import { cpfMask, phoneMask } from "@/core/utils/utils";
   import {
@@ -75,6 +74,7 @@
   } from "@/core/validators/validationsRules";
   import { statusOpt } from "@/core/enums/enums";
   import Select from "@/shared/components/selects/Select.vue";
+  import type { IClient } from "@/modules/Clients/@types/types";
 
   const formRef = ref();
   const valid = ref(false);

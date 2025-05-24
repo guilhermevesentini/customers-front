@@ -12,8 +12,9 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from "vue";
-  import { vMaska } from "maska";
+  import { Mask, vMaska } from "maska";
   import InputText from "./InputText.vue";
+  import { formatPhone } from "@/core/utils/utils";
 
   const props = defineProps<{
     modelValue: string | null | undefined;
@@ -46,7 +47,7 @@
         // Garante que newValue seja uma string de dígitos antes de aplicar a máscara
         const cleaned = newValue.replace(/[^\d]/g, "");
         if (cleaned.length <= 11) {
-          displayValue.value = mask(cleaned, "(##) # ####-####");
+          displayValue.value = formatPhone(cleaned);
         } else {
           displayValue.value = "";
           emit("update:modelValue", null);
@@ -80,7 +81,7 @@
     } else {
       emit("update:modelValue", cleaned);
       // Formata o valor para exibição
-      displayValue.value = mask(cleaned, "(##) # ####-####");
+      displayValue.value = formatPhone(cleaned);
     }
   };
 </script>

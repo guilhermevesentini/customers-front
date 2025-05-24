@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
   import { formatCpf, formatDateToBr } from "@/core/utils/utils";
-  import type { IDetails } from "@/modules/Clients/interfaces/IDetails";
+  import type { IDetails } from "@/modules/Clients/@types/types";
 
   defineProps<{
     details: IDetails | undefined;

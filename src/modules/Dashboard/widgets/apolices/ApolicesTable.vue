@@ -33,14 +33,12 @@
   import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
   import type { IApolicesList } from "@/core/stores/types";
   import { companiesOpt, tipoOpt } from "@/core/enums/enums";
-
-  defineProps<{
-    apolicesList: IApolicesList;
-  }>();
+  import useDashboard from "../../useDashboard";
 
   const searchedText = ref("");
   const router = useRouter();
   const itemKey = (item: any) => `${item.id}-${item.company}-${item.tipo}`;
+  const { filteredProducts } = useDashboard();
 
   const EHeadersApolicesPage = [
     { key: "status", title: "Status", width: "20" },
@@ -56,6 +54,13 @@
     if (!id) return;
     router.push(`/clients/client/${id}`);
   }
+
+  const apolicesList = computed<IApolicesList>(() => {
+    return filteredProducts.value.map((product) => ({
+      ...product,
+      id: product.clientId,
+    }));
+  });
 </script>
 
 <style scoped></style>

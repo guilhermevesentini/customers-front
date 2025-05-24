@@ -24,6 +24,11 @@ export const formatCpf = (cpf: string) => {
   return maskInstance.masked(cpf);
 };
 
+export const formatPhone = (phone: string) => {
+  const maskInstance = new Mask(phoneMask);
+  return maskInstance.masked(phone);
+};
+
 export const formatCurrency = (value: string) => {
   const maskInstance = new Mask(currencyMask);
   return maskInstance.masked(value);

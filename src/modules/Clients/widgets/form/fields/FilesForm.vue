@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import FileUploader from "@/shared/components/upload/FileUploader.vue";
+  import type { IClient } from "@/modules/Clients/@types/types";
+import FileUploader from "@/shared/components/upload/FileUploader.vue";
   import { watch } from "vue";
 
   const valid = ref(false);

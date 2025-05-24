@@ -152,7 +152,7 @@
     ESimNaoOpt,
     EUtilizacaoVeiculoOpt,
   } from "@/core/enums/enums";
-  import type { IClient } from "@/modules/Clients/interfaces/IClient";
+  import type { IClient } from "@/modules/Clients/@types/types";
   import InputText from "@/shared/components/inputs/InputText.vue";
   import Select from "@/shared/components/selects/Select.vue";
   import Switch from "@/shared/components/switches/Switch.vue";

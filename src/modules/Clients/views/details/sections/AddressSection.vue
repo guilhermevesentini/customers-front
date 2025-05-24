@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IAddress } from "@/domain/shared/address/Address";
+  import type { IAddress } from "@/modules/Clients/@types/types";
 
   defineProps<{
     details: IAddress | undefined;

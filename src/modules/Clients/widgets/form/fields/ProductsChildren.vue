@@ -66,12 +66,12 @@
     statusRules,
     tipoRules,
   } from "@/core/validators/validationsRules";
-  import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
   import DatePickerInput from "@/shared/components/datepicker/DatePickerInput.vue";
   import InputCurrency from "@/shared/components/inputs/InputCurrency.vue";
   import Select from "@/shared/components/selects/Select.vue";
   import FileUploader from "@/shared/components/upload/FileUploader.vue";
   import { companiesOpt, statusOpt, tipoOpt } from "@/core/enums/enums";
+  import type { IProduct } from "@/modules/Clients/@types/types";
 
   const props = defineProps<{ product: IProduct }>();
 

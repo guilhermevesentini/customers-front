@@ -30,18 +30,18 @@
 
 <script setup lang="ts">
   import { ref } from "vue";
-  import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
   import PageTile from "@/shared/components/titles/PageTile.vue";
   import Products from "./fields/Products.vue";
   import { ClientsApiAdapter } from "../../services/adapters/ClientsAdapter";
-  import type { IClient } from "../../interfaces/IClient";
+  import { createClient } from "../../factories/ClientFactory";
+  import type { IClient } from "../../@types/types";
 
   const tab = ref("Details");
 
   const loading = ref(false);
   const formRef = ref();
 
-  const form = reactive<IClient>(ClientFactory.create().getClient);
+  const form = reactive<IClient>(createClient());
 
   const route = useRoute();
   const clientId = route.params.id as string | undefined;
@@ -80,10 +80,11 @@
     }
 
     try {
+      const clientData = createClient(form);
       if (clientId) {
-        await ClientsApiAdapter.update(clientId, ClientFactory.create(form).getClient);
+        await ClientsApiAdapter.update(clientId, clientData);
       } else {
-        await ClientsApiAdapter.create(ClientFactory.create(form).getClient);
+        await ClientsApiAdapter.create(clientData);
       }
 
       router.push("/clients");
@@ -103,7 +104,7 @@
     const response = await ClientsApiAdapter.getById(id);
 
     if (response) {
-      Object.assign(form, ClientFactory.create(response).getClient);
+      Object.assign(form, createClient(response));
     }
   };
 

@@ -1,7 +1,7 @@
 import api from "@/core/http/api";
-import type { IClient } from "../../interfaces/IClient";
 import type { IClientsRepository } from "../ports/IClientsRespository";
 import storageApi from "@/core/http/storage";
+import type { IClient } from "../../@types/types";
 
 const CLIENTS_KEY = "/clients";
 

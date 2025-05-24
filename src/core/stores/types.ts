@@ -1,5 +1,4 @@
-import type { IClient } from "@/modules/Clients/interfaces/IClient";
-import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
+import type { IClient, IProduct } from "@/modules/Clients/@types/types";
 
 export type IAppStore = {
   loading: boolean;

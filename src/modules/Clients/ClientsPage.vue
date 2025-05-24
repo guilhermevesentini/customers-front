@@ -39,9 +39,9 @@
   import { EHeadersClientsPage } from "./widgets/enums";
   import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
   import { ClientsApiAdapter } from "./services/adapters/ClientsAdapter";
-  import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
-  import type { IClient } from "./interfaces/IClient";
   import { formatCpf } from "@/core/utils/utils";
+  import type { IClient } from "./@types/types";
+  import { createClient } from "./factories/ClientFactory";
 
   const loading = ref(false);
   const clientsList = ref<IClient[]>([]);
@@ -74,7 +74,7 @@
     loading.value = true;
     try {
       const response = await ClientsApiAdapter.getAll();
-      clientsList.value = response?.map((client) => ClientFactory.create(client).getClient);
+      clientsList.value = response?.map((client) => createClient(client));
     } catch (error) {
       console.error("Erro ao buscar clientes:", error);
       clientsList.value = [];

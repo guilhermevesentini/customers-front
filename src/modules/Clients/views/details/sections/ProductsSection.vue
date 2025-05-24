@@ -29,10 +29,10 @@
 
 <script setup lang="ts">
   import { formatDateToBr, getTextFromOptions } from "@/core/utils/utils";
-  import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
   import FilesList from "@/shared/components/files/FilesList.vue";
   import { companiesOpt, tipoOpt } from "@/core/enums/enums";
   import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
+  import type { IProduct } from "@/modules/Clients/@types/types";
 
   defineProps<{
     details: IProduct[] | undefined;

@@ -59,7 +59,7 @@
     stateRules,
     zipcodeRules,
   } from "@/core/validators/validationsRules";
-  import type { IClient } from "@/modules/Clients/interfaces/IClient";
+  import type { IClient } from "@/modules/Clients/@types/types";
   import InputNumber from "@/shared/components/inputs/InputNumber.vue";
   import InputText from "@/shared/components/inputs/InputText.vue";
 

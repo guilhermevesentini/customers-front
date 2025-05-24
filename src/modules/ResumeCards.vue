@@ -17,9 +17,49 @@
 </template>
 
 <script setup lang="ts">
+  import { EStatus } from "@/core/enums/enums";
   import type { ECardsValues } from "./Dashboard/types";
+  import useDashboard from "./Dashboard/useDashboard";
 
-  defineProps<{
-    cardsValues: ECardsValues[];
-  }>();
+  const { filteredProducts, clients } = useDashboard();
+
+  const clientsFiltered = computed(() => {
+    const clientIds = new Set(filteredProducts.value.map((p) => p.clientId));
+    return clients.value.filter((client) => clientIds.has(client.id));
+  });
+
+  const cardsValues = computed((): ECardsValues[] => {
+    const totalApolices = filteredProducts.value
+      .reduce((acc, product) => acc + product.price, 0)
+      .toFixed(2);
+
+    return [
+      {
+        value: clientsFiltered.value.length.toString() || "0",
+        title: "Clientes",
+        icon: "mdi-account-group",
+        id: 1,
+      },
+      {
+        value: filteredProducts.value.length,
+        title: "Apólices",
+        icon: "mdi-file-account-outline",
+        id: 2,
+      },
+      {
+        value: filteredProducts.value.filter(
+          (product) => String(product.status) === String(EStatus.pending),
+        ).length,
+        title: "Pendentes",
+        icon: "mdi-alert",
+        id: 3,
+      },
+      {
+        value: `R$ ${totalApolices}`,
+        title: "Receita",
+        icon: "mdi-cash-register",
+        id: 4,
+      },
+    ];
+  });
 </script>

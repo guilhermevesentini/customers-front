@@ -1,4 +1,4 @@
-import type { IClient } from "../../interfaces/IClient";
+import type { IClient } from "../../@types/types";
 
 export interface IClientsRepository {
   getAll(): Promise<IClient[]>;

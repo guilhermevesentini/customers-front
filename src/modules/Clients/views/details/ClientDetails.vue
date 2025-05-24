@@ -42,14 +42,14 @@
 
 <script setup lang="ts">
   import PageTile from "@/shared/components/titles/PageTile.vue";
-  import type { IClient } from "../../interfaces/IClient";
-  import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
   import { ClientsApiAdapter } from "../../services/adapters/ClientsAdapter";
   import { formatCpf } from "@/core/utils/utils";
   import DetailsSection from "./sections/DetailsSection.vue";
   import AddressSection from "./sections/AddressSection.vue";
   import ProfileSection from "./sections/ProfileSection.vue";
   import ProductsSection from "./sections/ProductsSection.vue";
+  import type { IClient } from "../../@types/types";
+  import { createClient } from "../../factories/ClientFactory";
   //import FilesSection from './sections/FilesSection.vue';
 
   const tab = ref("details");
@@ -77,7 +77,7 @@
     const response = await ClientsApiAdapter.getById(id);
 
     if (response) {
-      client.value = ClientFactory.create(response).getClient;
+      client.value = createClient(response);
     }
   };
 

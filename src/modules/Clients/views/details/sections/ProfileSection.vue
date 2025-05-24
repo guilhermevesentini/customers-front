@@ -56,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { IRiskProfile } from "@/domain/clients/entities/RiskProfile";
+import type { IRiskProfile } from '@/modules/Clients/@types/types';
 
   defineProps<{
     details: IRiskProfile | undefined;

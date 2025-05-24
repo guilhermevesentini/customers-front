@@ -1,7 +1,7 @@
 import { ClientsApiAdapter } from "@/modules/Clients/services/adapters/ClientsAdapter";
-import { ClientFactory } from "@/domain/clients/factories/ClientFactory";
 import { useAppStore } from "../stores/appStore";
 import { mockClient } from "./ClientsMock";
+import { createClient } from "@/modules/Clients/factories/ClientFactory";
 
 export default function mockService() {
   const loading = ref(false);
@@ -10,7 +10,7 @@ export default function mockService() {
     try {
       loading.value = true;
       for (const client of mockClient) {
-        await ClientsApiAdapter.create(ClientFactory.create(client).getClient);
+        await ClientsApiAdapter.create(createClient(client));
       }
     } catch (err) {
       console.log(err);

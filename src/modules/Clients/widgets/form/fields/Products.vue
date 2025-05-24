@@ -24,17 +24,16 @@
 
 <script setup lang="ts">
   import { ref } from "vue";
-  import { Products } from "@/domain/clients/entities/Products";
-  import type { IClient } from "@/modules/Clients/interfaces/IClient";
-  import type { IProduct } from "@/modules/Clients/interfaces/IProducts";
   import ProductsChildren from "./ProductsChildren.vue";
   import PageTile from "@/shared/components/titles/PageTile.vue";
+  import type { IClient, IProduct } from "@/modules/Clients/@types/types";
+  import { createProductData } from "@/modules/Clients/factories/ProductsFactory";
 
   const form = inject<IClient>("clientForm");
   const childrenRefs = ref<InstanceType<typeof ProductsChildren>[]>([]);
 
   function handleAdd() {
-    form?.products.push(new Products().getProducts);
+    form?.products.push(createProductData());
   }
 
   function handleRemove(product: IProduct) {

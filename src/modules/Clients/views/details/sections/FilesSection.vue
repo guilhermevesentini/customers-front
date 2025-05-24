@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
   import { base64ToBlob } from "@/core/utils/utils";
-  import type { IFiles } from "@/domain/shared/Document/Document";
+  import type { IFiles } from "@/modules/Clients/@types/types";
 
   defineProps<{
     details: IFiles[] | undefined;

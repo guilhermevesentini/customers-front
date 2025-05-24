@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
   import { readFileAsBase64 } from "@/core/utils/utils";
-  import type { IFiles } from "@/domain/shared/Document/Document";
+import type { IFiles } from "@/modules/Clients/@types/types";
   import { ref, defineProps, defineEmits } from "vue";
 
   const props = defineProps<{

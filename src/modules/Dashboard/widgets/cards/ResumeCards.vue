@@ -44,6 +44,7 @@
   import { EStatus } from "@/core/enums/enums";
   import useDashboard from "../../useDashboard";
   import type { ECardsValues } from "../../types";
+  import { formatToBRL } from "@/core/utils/utils";
 
   const { filteredProducts, clients } = useDashboard();
 
@@ -80,7 +81,7 @@
         id: 3,
       },
       {
-        value: `R$ ${totalApolices}`,
+        value: `${formatToBRL(Number(totalApolices))}`,
         title: "Receita",
         icon: "mdi-cash-register",
         id: 4,

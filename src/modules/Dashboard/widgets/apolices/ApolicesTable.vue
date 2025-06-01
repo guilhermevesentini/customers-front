@@ -31,7 +31,10 @@
       <template #item.vigencia="{ item }">
         {{ `${formatDateToBr(item?.start || "")} - ${formatDateToBr(item?.end || "")} ` }}
       </template>
-      <template #item.price="{ item }"> {{ `R$ ${item?.price?.toFixed(2)}` }} </template>
+      <template #item.price="{ item }">
+        {{ formatToBRL(item?.price || 0) }}
+      </template>
+
       <template #item.actions="{ item }">
         <div class="d-flex align-center">
           <div>
@@ -64,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-  import { formatDateToBr, getTextFromOptions } from "@/core/utils/utils";
+  import { formatDateToBr, formatToBRL, getTextFromOptions } from "@/core/utils/utils";
   import BagdeStatus from "@/shared/components/bagde/BagdeStatus.vue";
   import { companiesOpt, tipoOpt } from "@/core/enums/enums";
   import useDashboard from "../../useDashboard";

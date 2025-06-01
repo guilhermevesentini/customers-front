@@ -7,6 +7,14 @@ export function formatDateToBr(dateStr: string | Date): string {
   return date.toLocaleDateString("pt-BR");
 }
 
+export function formatToBRL(value: number): string {
+  console.log(value);
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(value);
+}
+
 export const phoneMask = { mask: ["(##) ####-####", "(##) #####-####"] };
 export const cpfMask = { mask: ["###.###.###-##"] };
 export const zipCodeMask = { mask: ["#####-###"] };

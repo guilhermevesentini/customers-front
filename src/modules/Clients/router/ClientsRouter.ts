@@ -4,19 +4,19 @@ import ClientsPage from "../ClientsPage.vue";
 
 export const clientsRouter = [
   {
-    path: "/clients",
+    path: "clients",
     component: ClientsPage,
   },
   {
-    path: "/clients/create",
+    path: "clients/create",
     component: ClientForm,
   },
   {
-    path: "/clients/client/:id",
+    path: "clients/client/:id",
     component: ClientDetails,
   },
   {
-    path: "/clients/edit/:id",
+    path: "clients/edit/:id",
     component: ClientForm,
   },
 ];

@@ -25,9 +25,7 @@
       <template #item.actions="{ item }">
         <div class="d-flex align-center">
           <div>
-            <v-icon class="me-5" size="small" @click="openClient(item.id)">
-              mdi-eye-outline
-            </v-icon>
+            <v-icon class="me-5" size="small" @click="openClient(item)"> mdi-eye-outline </v-icon>
             <v-tooltip activator="parent">Ver cliente</v-tooltip>
           </div>
           <div v-if="item.files && item.files?.length >= 1">
@@ -88,9 +86,9 @@
     { key: "actions", title: "Açoes", sortable: false, width: "60" },
   ];
 
-  function openClient(id: string | undefined) {
-    if (!id) return;
-    router.push(`/clients/client/${id}`);
+  function openClient(item: Partial<IProduct> & { clientId: string }) {
+    if (!item) return;
+    router.push(`/clients/client/${item.clientId}`);
   }
 
   const handleOpenFile = (files: IFiles[] | undefined) => {

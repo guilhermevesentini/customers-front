@@ -59,7 +59,7 @@
   }
 
   function editClient(id: string) {
-    router.push(`clients/edit/${id}`);
+    router.push(`/clients/edit/${id}`);
   }
 
   async function deleteItem(id: string) {

@@ -10,8 +10,8 @@ const routes = [
     children: [
       { path: "", redirect: "/dashboard" },
       { path: "dashboard", component: DashboardPage },
-      ...clientsRouter,
       { path: "/:pathMatch(.*)*", redirect: "/dashboard" },
+      ...clientsRouter,
     ],
   },
 ];

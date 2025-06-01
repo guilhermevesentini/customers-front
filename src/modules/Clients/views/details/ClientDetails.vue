@@ -57,6 +57,8 @@
   const route = useRoute();
   const clientId = route.params.id as string | undefined;
 
+  console.log("clientId", clientId);
+
   const router = useRouter();
 
   const client = ref<IClient | undefined>(undefined);

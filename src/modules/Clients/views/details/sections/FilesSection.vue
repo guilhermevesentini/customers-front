@@ -10,29 +10,12 @@
 </template>
 
 <script setup lang="ts">
-  import { base64ToBlob } from "@/core/utils/utils";
+  import { downloadFile, openFile } from "@/core/utils/utils";
   import type { IFiles } from "@/modules/Clients/@types/types";
 
   defineProps<{
     details: IFiles[] | undefined;
   }>();
-
-  function openFile(file: IFiles) {
-    const blob = base64ToBlob(file.content, file.type);
-    const fileURL = URL.createObjectURL(blob);
-    window.open(fileURL, "_blank");
-    setTimeout(() => URL.revokeObjectURL(fileURL), 10000);
-  }
-
-  function downloadFile(file: IFiles) {
-    const blob = base64ToBlob(file.content, file.type);
-    const fileURL = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = fileURL;
-    link.download = file.name;
-    link.click();
-    URL.revokeObjectURL(fileURL);
-  }
 </script>
 
 <style scoped>

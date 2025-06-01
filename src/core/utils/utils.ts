@@ -1,3 +1,4 @@
+import type { IFiles } from "@/modules/Clients/@types/types";
 import { Mask } from "maska";
 
 export function formatDateToBr(dateStr: string | Date): string {
@@ -61,4 +62,23 @@ export const getTextFromOptions = (
 ) => {
   const found = options.find((opt) => opt.value === value);
   return found ? found.title : value;
+};
+
+export const openFile = (file: IFiles | undefined) => {
+  if (!file) return;
+  const blob = base64ToBlob(file.content, file.type);
+  const fileURL = URL.createObjectURL(blob);
+  window.open(fileURL, "_blank");
+  setTimeout(() => URL.revokeObjectURL(fileURL), 10000);
+};
+
+export const downloadFile = (file: IFiles | undefined) => {
+  if (!file) return;
+  const blob = base64ToBlob(file.content, file.type);
+  const fileURL = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = fileURL;
+  link.download = file.name;
+  link.click();
+  URL.revokeObjectURL(fileURL);
 };

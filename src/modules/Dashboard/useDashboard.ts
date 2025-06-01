@@ -1,5 +1,6 @@
 import { useAppStore } from "@/core/stores/appStore";
 import useFilterDashboard from "./widgets/filters/useFilterDashboard";
+import { EStatus } from "@/core/enums/enums";
 
 export default function useDashboard() {
   const appStore = useAppStore();
@@ -35,7 +36,16 @@ export default function useDashboard() {
             ...product,
             clientId: client.id,
             client,
-          })),
+          }))
+          .sort((a, b) => {
+            const statusOrder = {
+              [EStatus.pending]: 1,
+              [EStatus.active]: 2,
+              [EStatus.inactive]: 3,
+            };
+
+            return statusOrder[a.status as EStatus] - statusOrder[b.status as EStatus];
+          }),
       ) || []
     );
   });

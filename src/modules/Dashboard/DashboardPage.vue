@@ -8,14 +8,14 @@
         <ResumeCards />
       </v-col>
       <v-col cols="12">
-        <ApolicesTable />
+        <ApolicesTable @update:refresh="appStore.getClients()" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script setup lang="ts">
-  import ResumeCards from "../ResumeCards.vue";
+  import ResumeCards from "./widgets/cards/ResumeCards.vue";
   import ApolicesTable from "./widgets/apolices/ApolicesTable.vue";
   import FilterDashboard from "./widgets/filters/FilterDashboard.vue";
   import useDashboard from "./useDashboard";

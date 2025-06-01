@@ -4,9 +4,16 @@
       <PageTile :title="handleTitle" :loading="loading" @update:save="create" show-save />
     </v-card>
     <v-card class="fill-width p-0" flat>
-      <v-tabs v-model="tab" bg-color="#fffff" class="rounded-lg" density="comfortable">
+      <v-tabs v-model="tab" bg-color="#fff" class="rounded-lg" density="comfortable">
         <v-tab v-for="tab in tabItems" :key="tab.name">
-          {{ tab.name }} <v-icon v-if="tab.isPending" class="ml-2">mdi-alert</v-icon>
+          {{ tab.name }}
+          <v-icon
+            v-if="tab.isPending"
+            class="ml-2"
+            color="orange"
+            title="Há pendências para preencher"
+            >mdi-alert</v-icon
+          >
         </v-tab>
       </v-tabs>
     </v-card>
@@ -14,7 +21,8 @@
       <v-window v-model="tab">
         <v-window-item value="Details">
           <v-container style="padding: 1rem 0">
-            <PersonalDetails ref="personalDetailsRef" /> <AddressForm />
+            <PersonalDetails ref="personalDetailsRef" />
+            <AddressForm />
           </v-container>
         </v-window-item>
         <v-window-item value="Profile">
@@ -69,8 +77,8 @@
       productsRef.value ? productsRef.value?.validate() : { valid: true },
     ]);
 
-    updateTabPending("Details", results[0]?.valid === false);
-    updateTabPending("Products", results[1]?.valid === false);
+    updateTabPending("Detalhes", results[0]?.valid === false);
+    updateTabPending("Produtos", results[1]?.valid === false);
 
     const allValid = results.every((r) => r?.valid);
 
@@ -81,10 +89,10 @@
 
     try {
       const clientData = createClient(form);
-      if (clientId) {
-        await ClientsApiAdapter.update(clientId, clientData);
-      } else {
+      if (!clientId) {
         await ClientsApiAdapter.create(clientData);
+      } else {
+        await ClientsApiAdapter.update(clientId, clientData);
       }
 
       router.push("/clients");

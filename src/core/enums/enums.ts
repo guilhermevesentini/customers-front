@@ -44,7 +44,7 @@ export enum EStatus {
 
 export const ESimNaoOpt = [
   { title: "Sim", value: "1" },
-  { title: "Não", value: "1" },
+  { title: "Não", value: "2" },
 ];
 
 export const ELocalPernoiteOpt = [

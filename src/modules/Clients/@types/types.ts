@@ -3,6 +3,7 @@ export type IClient = {
   details: IDetails;
   createdAt: Date;
   products: IProduct[];
+  status: string;
   address: IAddress;
   riskProfile: IRiskProfile;
   documents: IFiles[];
@@ -19,6 +20,7 @@ export type IDetails = {
 };
 
 export type IProduct = {
+  id: string;
   status: string;
   tipo: string;
   company: string;

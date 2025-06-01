@@ -14,7 +14,7 @@
       />
     </v-card>
     <v-card class="fill-width p-0" flat>
-      <v-tabs v-model="tab" bg-color="#fffff" class="rounded-lg" density="comfortable">
+      <v-tabs v-model="tab" bg-color="#fff" class="rounded-lg" density="comfortable">
         <v-tab value="details">Detalhes</v-tab> <v-tab value="profile">Perfil</v-tab>
         <v-tab value="products">Produtos</v-tab>
       </v-tabs>

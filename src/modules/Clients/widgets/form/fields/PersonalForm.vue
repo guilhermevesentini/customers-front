@@ -13,24 +13,12 @@
               />
             </v-col>
             <v-col cols="12" md="6">
-              <Select
-                v-model="form.details.status"
-                :items="statusOpt"
-                label="Status *"
-                required
-                :rules="statusRules"
-              />
-            </v-col>
-            <v-col cols="12" md="6">
               <InputText
                 v-model="form.details.email"
                 label="E-mail *"
                 required
                 :rules="emailRules"
               />
-            </v-col>
-            <v-col cols="12" md="6">
-              <DatePickerInput v-model="form.details.birthday" label="Birthday" />
             </v-col>
             <v-col cols="12" md="6">
               <InputText
@@ -43,6 +31,9 @@
             </v-col>
             <v-col cols="12" md="6">
               <InputText v-model="form.details.rg" mask="'##.###.###-#'" label="RG" required />
+            </v-col>
+            <v-col cols="12" md="6">
+              <DatePickerInput v-model="form.details.birthday" label="Birthday" />
             </v-col>
             <v-col cols="12" md="6">
               <InputText

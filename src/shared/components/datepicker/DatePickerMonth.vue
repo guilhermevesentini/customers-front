@@ -11,7 +11,6 @@
         v-bind="activatorProps"
         :label="label"
         :model-value="formattedValue"
-        clearable
         :disabled="disabled"
         :rules="rules"
         variant="solo-filled"

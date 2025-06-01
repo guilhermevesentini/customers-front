@@ -18,6 +18,7 @@ function generateClients(): IClient[] {
       const policies: IProduct[] = [];
 
       for (let p = 0; p < policiesCount; p++) {
+        const id = `product-${p + 1}-${Math.random().toString(36).slice(2, 9)}`;
         const tipo = `${Math.floor(Math.random() * 7) + 1}`;
         const company = `${Math.floor(Math.random() * 5) + 1}`;
         const price = Math.floor(Math.random() * 1000) + 300;
@@ -27,6 +28,7 @@ function generateClients(): IClient[] {
         end.setMonth(start.getMonth() + 1);
 
         policies.push({
+          id,
           tipo,
           company,
           description: `Apólice ${p + 1} do Cliente ${clientIdCounter}`,
@@ -40,6 +42,7 @@ function generateClients(): IClient[] {
 
       clients.push({
         id: `client-${clientIdCounter}-${Math.random().toString(36).slice(2, 9)}`,
+        status: possibleStatus[clientIdCounter % possibleStatus.length],
         createdAt: new Date(Date.now() - clientIdCounter * 86400000),
         details: {
           name: `Cliente Mock ${clientIdCounter}`,

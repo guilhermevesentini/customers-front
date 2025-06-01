@@ -7,7 +7,7 @@
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.address.address"
-                label="Endereço *"
+                label="Endereço"
                 required
                 :rules="addressRules"
               />
@@ -15,7 +15,7 @@
             <v-col cols="12" md="6">
               <InputNumber
                 v-model="form.address.number"
-                label="Número *"
+                label="Número"
                 required
                 inputmode="numeric"
                 pattern="[0-9]*"
@@ -26,20 +26,15 @@
               <InputText v-model="form.address.complement" label="Complemento" />
             </v-col>
             <v-col cols="12" md="6">
-              <InputText v-model="form.address.city" label="Cidade *" required :rules="cityRules" />
+              <InputText v-model="form.address.city" label="Cidade" required :rules="cityRules" />
             </v-col>
             <v-col cols="12" md="6">
-              <InputText
-                v-model="form.address.state"
-                label="Estado *"
-                required
-                :rules="stateRules"
-              />
+              <InputText v-model="form.address.state" label="Estado" required :rules="stateRules" />
             </v-col>
             <v-col cols="12" md="6">
               <InputText
                 v-model="form.address.zipcode"
-                label="CEP *"
+                label="CEP"
                 required
                 :rules="zipcodeRules"
               />

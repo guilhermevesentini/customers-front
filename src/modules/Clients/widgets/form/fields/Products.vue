@@ -33,7 +33,7 @@
   const childrenRefs = ref<InstanceType<typeof ProductsChildren>[]>([]);
 
   function handleAdd() {
-    form?.products.push(createProductData());
+    form?.products.unshift(createProductData());
   }
 
   function handleRemove(product: IProduct) {

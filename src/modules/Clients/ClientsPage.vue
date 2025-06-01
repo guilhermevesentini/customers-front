@@ -14,7 +14,7 @@
           :items-per-page-options="[5, 10, 25, 50]"
         >
           <template #item.status="{ item }">
-            <BagdeStatus :status="item.details.status" />
+            <BagdeStatus :status="item.status" />
           </template>
           <template #item.cpf="{ item }"> {{ formatCpf(item.details.cpf) }} </template>
           <template #item.apolices="{ item }"> {{ item.products.length || 0 }} </template>

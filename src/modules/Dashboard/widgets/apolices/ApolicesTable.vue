@@ -1,6 +1,16 @@
 <template>
   <v-card class="fill-width p-0" flat>
     <PageTile title="Apólices" />
+    <div class="pa-4">
+      <InputText
+        v-model="searchedText"
+        label="Buscar"
+        prepend-inner-icon="mdi-magnify"
+        clearable
+        hide-details
+        density="compact"
+      />
+    </div>
     <v-data-table
       fixed-header
       :headers="EHeadersApolicesPage"
@@ -62,6 +72,7 @@
   import type { IFiles, IProduct } from "@/modules/Clients/@types/types";
   import FilesDialog from "./FilesDialog.vue";
   import RenewDrawer from "./RenewDrawer.vue";
+  import InputText from "@/shared/components/inputs/InputText.vue";
 
   const searchedText = ref("");
   const router = useRouter();
@@ -101,11 +112,9 @@
     apolice: Partial<IProduct> & { clientId: string },
     clientId: string | undefined,
   ) => {
-    console.log("apolice", apolice);
-
     if (!apolice || !clientId) return;
     selectedRenew.value = apolice;
-    selectedClientId.value = apolice.clientId as string;
+    selectedClientId.value = apolice.clientId;
     showRenewDialog.value = true;
   };
 </script>

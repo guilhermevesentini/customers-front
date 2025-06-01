@@ -1,7 +1,7 @@
 import { clientsRouter } from "@/modules/Clients/router/ClientsRouter";
 import DashboardPage from "@/modules/Dashboard/DashboardPage.vue";
 import MainFrame from "@/shared/layouts/MainFrame.vue";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
@@ -17,7 +17,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

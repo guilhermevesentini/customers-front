@@ -7,6 +7,7 @@ import Vue from "@vitejs/plugin-vue";
 import VueRouter from "unplugin-vue-router/vite";
 import { VueRouterAutoImports } from "unplugin-vue-router";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // Utilities
 import { defineConfig } from "vite";
@@ -57,7 +58,39 @@ export default defineConfig({
         ],
       },
     }),
+    visualizer({
+      filename: "stats.html",
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+      template: "treemap",
+    }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("vuetify")) {
+              return "vuetify";
+            }
+            if (id.includes("vue") || id.includes("pinia") || id.includes("vue-router")) {
+              return "vue-libs";
+            }
+            if (id.includes("@vuepic/vue-datepicker")) {
+              return "vue-datepicker";
+            }
+            return "vendor";
+          }
+          if (id.includes("src/modules")) {
+            return "app-modules";
+          }
+
+          return undefined;
+        },
+      },
+    },
+  },
   optimizeDeps: {
     exclude: [
       "vuetify",

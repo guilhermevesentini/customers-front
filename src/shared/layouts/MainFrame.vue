@@ -5,12 +5,14 @@
     <v-main class="app-wrapper__main">
       <v-container class="app-wrapper__main-content"> <RouterView /> </v-container>
     </v-main>
+    <ToastProvider />
   </v-app>
 </template>
 
 <script lang="ts" setup>
   import SideBar from "./SideBar.vue";
   import Navbar from "./Navbar.vue";
+  import ToastProvider from "@/shared/components/alerts/ToastProvider.vue";
 </script>
 
 <style lang="scss" scoped>

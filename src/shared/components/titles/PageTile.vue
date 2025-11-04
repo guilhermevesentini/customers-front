@@ -6,12 +6,23 @@
           <h3 class="ma-0">{{ title }}</h3>
           <BagdeStatus class="ml-5" v-if="status" :status="status || EStatus.inactive" />
         </div>
-
         <h5 class="ma-0 text-medium-emphasis">{{ subtitle }}</h5>
       </div>
     </div>
 
     <div>
+      <v-btn
+        class="ml-3"
+        v-if="showImport"
+        type="submit"
+        color="secondary"
+        density="comfortable"
+        :loading="loading"
+        prepend-icon="mdi-file-import"
+        @click="emit('update:import')"
+      >
+        Importar
+      </v-btn>
       <v-btn
         class="ml-3"
         v-if="showSave"
@@ -72,6 +83,7 @@
     status?: string;
     loading?: boolean;
     showSave?: boolean;
+    showImport?: boolean;
     showCreate?: boolean;
     showEdit?: boolean;
     showDelete?: boolean;
@@ -82,6 +94,7 @@
     (e: "update:create"): void;
     (e: "update:edit"): void;
     (e: "update:delete"): void;
+    (e: "update:import"): void;
   }>();
 </script>
 

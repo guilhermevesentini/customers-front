@@ -1,7 +1,14 @@
 <template>
   <v-container class="fill-width p-0" style="height: 100%; overflow-y: auto">
     <v-card class="fill-width p-0" flat>
-      <PageTile title="Clientes" :loading="loading" @update:create="addClient" show-create />
+      <PageTile
+        title="Clientes"
+        :loading="loading"
+        @update:create="addClient"
+        @update:import="importClient"
+        show-create
+        show-import
+      />
       <ClientsFilters />
       <div class="overflow-y-auto p-0">
         <v-data-table
@@ -28,6 +35,7 @@
         </v-data-table>
       </div>
     </v-card>
+    <ImportClientDrawer v-model:show="showImportClientDrawer" @clientCreated="getAllClients" />
   </v-container>
 </template>
 
@@ -42,16 +50,21 @@
   import { formatCpf } from "@/core/utils/utils";
   import type { IClient } from "./@types/types";
   import { createClient } from "./factories/ClientFactory";
+  import ImportClientDrawer from "@/shared/widgets/importClient/ImportClientDrawer.vue";
 
   const loading = ref(false);
   const clientsList = ref<IClient[]>([]);
-
+  const showImportClientDrawer = ref(false);
   const router = useRouter();
 
   const { searchedText } = useClientsPage();
 
   function addClient() {
     router.push("/clients/create");
+  }
+
+  function importClient() {
+    showImportClientDrawer.value = true;
   }
 
   function openClient(id: string) {

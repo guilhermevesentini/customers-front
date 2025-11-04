@@ -114,6 +114,10 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    fs: {
+      // Permitir servir arquivos do node_modules para o worker do pdfjs
+      allow: [".."],
+    },
   },
   css: {
     preprocessorOptions: {

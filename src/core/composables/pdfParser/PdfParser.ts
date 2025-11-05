@@ -72,13 +72,8 @@ export async function extractTextFromPdf(pdfFile: IFiles): Promise<string> {
       fullText += pageText + "\n\n";
     }
 
-    // Log do texto extraído para debug (remover em produção se necessário)
-    console.log("Texto extraído do PDF:", fullText.substring(0, 1000) + "...");
-
     return fullText;
   } catch (error: any) {
-    console.error("Erro ao extrair texto do PDF:", error);
-
     // Verificar se é erro de senha/criptografia
     const errorMessage = error?.message || error?.toString() || "";
     const errorName = error?.name || "";
@@ -106,12 +101,12 @@ export async function extractTextFromPdf(pdfFile: IFiles): Promise<string> {
     }
 
     // Log detalhado para debug
-    console.error("Detalhes do erro:", {
-      name: errorName,
-      message: errorMessage,
-      code: error?.code,
-      stack: error?.stack,
-    });
+    // console.error("Detalhes do erro:", {
+    //   name: errorName,
+    //   message: errorMessage,
+    //   code: error?.code,
+    //   stack: error?.stack,
+    // });
 
     throw new Error(detailedMessage);
   }
@@ -127,7 +122,6 @@ export function parseClientInfoFromPdf(text: string, fileName: string): Partial<
 
   if (parser) {
     // Parser específico encontrado - usar estratégia da seguradora
-    console.log(`Parser encontrado para: ${parser.constructor.name}`);
     return parser.parse(text, fileName);
   }
 
@@ -196,14 +190,11 @@ function parseGenericPdf(text: string, fileName: string): Partial<IClient> {
  * Extrai dados do nome do arquivo e, se possível, do conteúdo do PDF
  */
 export async function processPdfToClient(pdfFile: IFiles): Promise<Partial<IClient>> {
-  console.log("processando PDF", pdfFile.name);
-
   let text = "";
 
   // Tentar extrair texto do PDF
   try {
     text = await extractTextFromPdf(pdfFile);
-    console.log("Texto extraído do PDF com sucesso");
   } catch (error: any) {
     const errorMessage = error?.message || error?.toString() || "";
 
@@ -243,6 +234,5 @@ export async function processPdfToClient(pdfFile: IFiles): Promise<Partial<IClie
     clientData.products[0].files = [pdfFile];
   }
 
-  console.log("Dados extraídos do arquivo:", clientData);
   return clientData;
 }

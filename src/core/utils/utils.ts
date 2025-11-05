@@ -8,7 +8,6 @@ export function formatDateToBr(dateStr: string | Date): string {
 }
 
 export function formatToBRL(value: number): string {
-  console.log(value);
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",

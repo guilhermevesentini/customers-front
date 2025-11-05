@@ -21,6 +21,7 @@
   import { createClient } from "@/modules/Clients/factories/ClientFactory";
   import { ClientsApiAdapter } from "@/modules/Clients/services/adapters/ClientsAdapter";
   import { useToast } from "@/shared/components/alerts/useToast";
+  import Card from "@/shared/components/cards/Card.vue";
 
   const show = ref(false);
   const files = ref<IFiles[]>([]);
@@ -118,8 +119,6 @@
         try {
           // Processar PDF e extrair informações
           const clientData = await processPdfToClient(file);
-
-          console.log("Dados extraídos:", clientData);
 
           // Validar dados antes de criar
           const validation = validateClientData(clientData);

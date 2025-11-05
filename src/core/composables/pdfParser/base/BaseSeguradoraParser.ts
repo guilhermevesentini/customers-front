@@ -1,6 +1,6 @@
 import type { IClient, IProduct } from "@/modules/Clients/@types/types";
 import type { ISeguradoraParser } from "../interfaces/ISeguradoraParser";
-import { EStatus } from "@/core/enums/enums";
+import { EStatus, tipoOpt } from "@/core/enums/enums";
 import { createProductData } from "@/modules/Clients/factories/ProductsFactory";
 
 /**
@@ -53,12 +53,17 @@ export abstract class BaseSeguradoraParser implements ISeguradoraParser {
   /**
    * Cria um produto básico a partir do número da apólice
    */
-  protected createProductFromApoliceNumber(apoliceNumber: string, clientName?: string): IProduct {
+  protected createProductFromApoliceNumber(
+    apoliceNumber: string,
+    clientName?: string,
+    company?: string,
+  ): IProduct {
     return createProductData(
       {
-        tipo: "Seguro",
+        tipo: tipoOpt.find((tipo) => tipo.title === "Automóvel")?.value || "",
         description: `Apólice ${apoliceNumber}`,
         status: EStatus.active,
+        company: company || "0",
       } as IProduct,
       clientName || "",
     );

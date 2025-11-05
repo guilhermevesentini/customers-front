@@ -1,6 +1,6 @@
 import type { ISeguradoraParser } from "../interfaces/ISeguradoraParser";
-import { MapfreParser } from "../parsers/MapfreParser";
-import { HdiParser } from "../parsers/HdiParser";
+import { MapfreParser } from "../parsers/mapfre/MapfreParser";
+import { HdiParser } from "../parsers/hdi/HdiParser";
 
 /**
  * Factory Pattern: Cria e retorna o parser adequado para cada seguradora

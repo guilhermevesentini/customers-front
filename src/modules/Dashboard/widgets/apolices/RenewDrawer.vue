@@ -134,8 +134,6 @@
     try {
       loading.value = true;
 
-      console.log("formRef.value");
-
       const isValid = await formRef.value?.validate();
 
       if (!isValid.valid) return;

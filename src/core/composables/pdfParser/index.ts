@@ -11,5 +11,5 @@ export type { ISeguradoraParser } from "./interfaces/ISeguradoraParser";
 export { BaseSeguradoraParser } from "./base/BaseSeguradoraParser";
 
 // Exportar parsers específicos (se necessário para uso direto)
-export { MapfreParser } from "./parsers/MapfreParser";
-export { HdiParser } from "./parsers/HdiParser";
+export { MapfreParser } from "./parsers/mapfre/MapfreParser";
+export { HdiParser } from "./parsers/hdi/HdiParser";

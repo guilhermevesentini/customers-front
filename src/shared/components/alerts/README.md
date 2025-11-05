@@ -136,7 +136,7 @@ function showUndoToast() {
     action: "Desfazer",
     onAction: () => {
       // Lógica para desfazer
-      console.log("Desfazer ação");
+      //console.log("Desfazer ação");
     },
   });
 }
